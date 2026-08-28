@@ -1,0 +1,14 @@
+# secrets
+.env
+*.key
+*.pem
+
+# PII never enters the repo (ADR-002)
+data/raw/
+data/private/
+subscribers*
+
+# runtime
+__pycache__/
+node_modules/
+.DS_Store
