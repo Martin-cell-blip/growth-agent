@@ -3,10 +3,8 @@
 *.key
 *.pem
 
-# PII never enters the repo (ADR-002)
-data/raw/
-data/private/
-subscribers*
+# business data is private (ADR-002); PII never enters any repo
+data/
 
 # runtime
 __pycache__/

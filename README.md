@@ -1,4 +1,4 @@
-# GrowthOps <sub>(working name)</sub>
+# growth-agent
 
 A spec-driven growth agent system, being built to run a **real overseas self-serve acquisition funnel** for an ed-tech SaaS — with deterministic guardrails, evals, and ablation-measured iterations.
 
@@ -11,7 +11,9 @@ Two problems, one system:
 - **Business** — a zero-budget SaaS needs its first overseas users: landing → signup → activation, owned end to end.
 - **System** — LLMs multiply content throughput, but probabilistic output conflicts with a zero-incident bar for outbound content.
 
-GrowthOps answers both: **agents for throughput, engineering for determinism, a real funnel for proof.**
+growth-agent answers both: **agents for throughput, engineering for determinism, a real funnel for proof.**
+
+**Data policy** — the system is public; business data stays private. Raw funnel and subscriber data never enter the repo (`data/` is ignored wholesale); published reports carry approved, aggregated metrics only. The ablation metrics remain fully verifiable: their denominators are draft and proposal counts, not business data (ADR-002).
 
 ## Principles
 
