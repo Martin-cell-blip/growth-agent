@@ -6,9 +6,8 @@
 <title>EconLens — practice feedback for your IB Economics IA, before your one official round</title>
 <meta name="description" content="Unlimited criterion-referenced practice feedback on IB Economics IA commentaries. It never writes for you — it shows you which step of your reasoning is still unproven.">
 <!-- Claims sourcing: every product statement on this page maps to a PT-ID in product-truth.md; see site/claims_map.md -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Spline+Sans+Mono:wght@400;500&display=swap" rel="stylesheet">
+<!-- Fonts self-hosted: Google Fonts is unreliable from mainland China (same fix as the photo site) -->
+<link rel="stylesheet" href="fonts.css">
 <style>
 :root{
   --paper:#f7f2e7; --paper-deep:#efe7d3; --ink:#211d16; --ink-soft:#5c5344;
@@ -130,7 +129,7 @@ footer .fine{font-family:var(--mono);font-size:.7rem;color:var(--ink-soft);margi
     <p class="sub rv d3" id="subhead">IB rules allow your teacher <strong>one round of written feedback</strong> on your IA draft. EconLens gives you unlimited criterion-referenced practice feedback first — so that one round counts.</p>
     <div class="capture rv d4">
       <!-- Buttondown embed; replace BUTTONDOWN_USERNAME before deploy -->
-      <form id="capForm" action="https://buttondown.com/api/emails/embed-subscribe/BUTTONDOWN_USERNAME" method="post" target="_blank">
+      <form id="capForm" action="https://buttondown.com/api/emails/embed-subscribe/zhunming" method="post" target="_blank">
         <input type="email" name="email" required placeholder="you@school.email" aria-label="Email address">
         <button type="submit" id="ctaBtn">Get early access</button>
       </form>
@@ -221,7 +220,7 @@ footer .fine{font-family:var(--mono);font-size:.7rem;color:var(--ink-soft);margi
     <span class="secnum">§4 · Early access</span>
     <h2 id="bottomTitle">The demo runs the full offline check suite. Your inbox gets the link first.</h2>
     <div class="capture">
-      <form class="capForm2" action="https://buttondown.com/api/emails/embed-subscribe/BUTTONDOWN_USERNAME" method="post" target="_blank">
+      <form class="capForm2" action="https://buttondown.com/api/emails/embed-subscribe/zhunming" method="post" target="_blank">
         <input type="email" name="email" required placeholder="you@school.email" aria-label="Email address">
         <button type="submit">Get early access</button>
       </form>
@@ -281,8 +280,8 @@ sw.textContent = COPY[variant].switchText || COPY.teacher.switchText;
 sw.href = (variant === "teacher" ? "?v=students" : "?v=teachers");
 
 /* ---------- analytics: PostHog, cookieless memory mode (funnel_spec E1/E2/E3) ---------- */
-var POSTHOG_KEY = "";           /* set before deploy; empty = analytics disabled, no errors */
-var POSTHOG_HOST = "https://eu.i.posthog.com";
+var POSTHOG_KEY = "phc_qT93AXT4Q6QNpFepA6JYiBikW5MEPanythkwgxQhb3Jf";
+var POSTHOG_HOST = "https://us.i.posthog.com";   /* region verified 2026-08-29: us=200, eu=404 */
 function phReady(cb){ if (window.posthog && POSTHOG_KEY) cb(); }
 if (POSTHOG_KEY) {
   !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.async=!0,p.src=s.api_host+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
