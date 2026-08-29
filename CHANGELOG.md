@@ -2,6 +2,7 @@
 > 每版本三问：需求说了什么 → 实际交付什么 → 评测说了什么
 
 ## [Unreleased] · v0.1 基线（W1-2）
+- 2026-08-29 **落地页上线**：https://martin-cell-blip.github.io/growth-agent/ （GitHub Pages + Actions 工作流发布 `site/`，26s 部署）。大陆可达方案=Pages 承载＋字体自托管；线上实测外部引用仅 buttondown.com 与 us.i.posthog.com。R2/R4 前半段完成，AC-03/04 待 PT 过目后勾
 - 2026-08-29 **落地页 v1 上仓**（`site/index.html` 单文件，学生/教师双变体 `?v=` 切换，Fraunces×Newsreader 阅卷手稿风）：hero 标注卡用**真实确定性 coach 输出**非 mockup；表单与分析未配置时安全降级（实测拦截 ✓）；声称→PT 映射见 `site/claims_map.md`（上线只需 11 条 PT 过目）
 - 2026-08-29 **R3 修订：Plausible → PostHog**（免费 1M events/月＋用户级漏斗；E1–E3 匿名段 cookieless memory 无 banner，E4 起邮件 token identify）——消掉 funnel_spec 原§4.1"聚合漏斗"限制
 - 2026-08-28 **定名 growth-agent**；ADR-002 同日修订：公开范围收窄为**系统公开＋业务数据私有**（`data/` 整目录不入仓，业务指标经批准后以脱敏聚合形态发布）
