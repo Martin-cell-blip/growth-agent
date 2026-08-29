@@ -6,7 +6,7 @@
 
 | 状态 | 判定边界 | 不算的情形 |
 |---|---|---|
-| **visitor** | 落地页产生 `visit` 事件的独立访客（以 Plausible Unique Visitors 口径为准，随工具口径披露） | 爬虫（Plausible 默认过滤）；预览/自测流量（用 `utm_source=selftest` 标记并在报表剔除） |
+| **visitor** | 落地页产生 `visit` 事件的独立访客（PostHog 匿名 distinct_id 口径；v0.1 匿名段为 cookieless memory 模式，跨会话不聚合≈会话级，随工具口径披露） | 爬虫（PostHog 默认过滤）；预览/自测流量（用 `utm_source=selftest` 标记并在报表剔除） |
 | **lead** | 完成邮箱**双重确认**（`email_confirm` 事件） | 只提交未确认；一次性邮箱域（黑名单校验，v0.1 人工抽查） |
 | **activated** | 在**托管 Demo** 内首次完成一次草稿分析（`first_analysis`：preflight 结果返回即算，无论是否使用 coach 反馈） | 打开 Demo 未提交草稿；粘贴样例文章但未运行分析 |
 
@@ -14,7 +14,7 @@
 
 | # | 事件 | 触发条件 | 去重规则 |
 |---|---|---|---|
-| E1 | `visit` | 落地页 pageview | Plausible 默认（同访客同日计一次 unique） |
+| E1 | `visit` | 落地页 pageview | PostHog 匿名 distinct_id（memory 模式≈会话级计一次） |
 | E2 | `scroll50` | 落地页滚动过 50% 视口深度 | 每访客每次会话至多一次 |
 | E3 | `email_submit` | 留资表单提交成功（服务端确认收到） | 同邮箱重复提交计一次 |
 | E4 | `email_confirm` | 点击确认邮件内链接，double opt-in 完成 | 同邮箱终身一次 |
@@ -29,8 +29,8 @@
 
 ## 4. v0.1 已知限制（如实披露，不掩饰）
 
-1. **聚合漏斗，非用户级链路**：Plausible 无 cookie，落地页访客与 Demo 激活者无法逐人关联；比率为聚合计数之比。用户级归因（邮件带一次性 token 链接）留给 v0.2。
-2. **跨站计数**：落地页与 Demo 若分属两个域，E1 与 E5 分别计数——渠道归因靠 UTM 贯穿。
+1. **工具与模式〔2026-08-29 修订，R3 由 Plausible 改 PostHog——Plausible 无免费层（$9/mo 起）且无用户级漏斗；PostHog 免费层 1M events/月〕**：E1–E3 匿名段采用 **cookieless memory 持久化**（无 consent banner；代价=跨会话不聚合，≈会话级计数）；**自 E4 起进入用户级**——确认邮件内链接携带一次性 token，点击即 `identify`，E4→E5→E6 为真实用户级链路。北极星 E5/E1 的分母仍为匿名计数，口径随报表披露。
+2. **跨站计数**：落地页与 Demo 分属两域时，E1 与 E5 分别计数；渠道归因靠 UTM 贯穿，用户级衔接靠 E4 token。
 3. 自测流量剔除依赖纪律（`utm_source=selftest`），无技术强制。
 
 ## 5. 依赖声明（⚠️ REQ-001 范围修订提案）

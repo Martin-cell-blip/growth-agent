@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EconLens — practice feedback for your IB Economics IA, before your one official round</title>
+<meta name="description" content="Unlimited criterion-referenced practice feedback on IB Economics IA commentaries. It never writes for you — it shows you which step of your reasoning is still unproven.">
+<!-- Claims sourcing: every product statement on this page maps to a PT-ID in product-truth.md; see site/claims_map.md -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Spline+Sans+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f7f2e7; --paper-deep:#efe7d3; --ink:#211d16; --ink-soft:#5c5344;
+  --mark:#b23a25; --mark-soft:#e8cfc4; --pass:#2e6b4f; --rule:#d8ccb4;
+  --serif:"Fraunces",Georgia,serif; --body:"Newsreader",Georgia,serif; --mono:"Spline Sans Mono",ui-monospace,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--paper); color:var(--ink); font-family:var(--body); font-size:17px; line-height:1.6;
+  background-image:radial-gradient(rgba(33,29,22,.045) 1px, transparent 1px); background-size:22px 22px;
+}
+a{color:inherit}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+/* topbar */
+.topbar{display:flex;justify-content:space-between;align-items:baseline;padding:22px 0;border-bottom:1.5px solid var(--ink)}
+.wordmark{font-family:var(--serif);font-weight:700;font-size:1.25rem;letter-spacing:.01em}
+.wordmark .zh{font-weight:400;color:var(--ink-soft);font-size:.9em;margin-left:.4em}
+.switch{font-family:var(--mono);font-size:.78rem;text-decoration:none;border:1px solid var(--ink);padding:.35em .8em;border-radius:2em;background:var(--paper)}
+.switch:hover{background:var(--ink);color:var(--paper)}
+/* hero */
+.hero{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;padding:72px 0 64px;align-items:start}
+.kicker{font-family:var(--mono);font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:var(--mark);margin-bottom:18px}
+h1{font-family:var(--serif);font-weight:700;font-size:clamp(2.1rem,4.6vw,3.4rem);line-height:1.08;letter-spacing:-.01em}
+h1 .under{background-image:linear-gradient(120deg,var(--mark-soft),var(--mark-soft));background-repeat:no-repeat;background-size:100% .38em;background-position:0 86%}
+.sub{margin-top:22px;font-size:1.12rem;color:var(--ink-soft);max-width:34em}
+.sub strong{color:var(--ink)}
+/* form */
+.capture{margin-top:30px}
+.capture form{display:flex;gap:10px;flex-wrap:wrap}
+.capture input[type=email]{
+  flex:1 1 240px;font-family:var(--mono);font-size:.92rem;padding:.85em 1em;color:var(--ink);
+  background:#fffdf6;border:1.5px solid var(--ink);border-radius:3px;outline:none}
+.capture input[type=email]:focus{box-shadow:3px 3px 0 var(--mark)}
+.capture button{
+  font-family:var(--mono);font-size:.92rem;font-weight:500;cursor:pointer;padding:.85em 1.3em;
+  background:var(--ink);color:var(--paper);border:1.5px solid var(--ink);border-radius:3px;transition:transform .12s ease}
+.capture button:hover{transform:translate(-2px,-2px);box-shadow:3px 3px 0 var(--mark)}
+.formnote{font-family:var(--mono);font-size:.72rem;color:var(--ink-soft);margin-top:10px}
+.formok{display:none;font-family:var(--mono);font-size:.85rem;color:var(--pass);margin-top:10px}
+/* marked draft card */
+.draft{position:relative;background:#fffdf6;border:1.5px solid var(--ink);border-radius:4px;
+  box-shadow:6px 6px 0 var(--paper-deep), 6px 6px 0 1.5px var(--rule);padding:26px 26px 22px;transform:rotate(.6deg)}
+.draft .doctag{font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);
+  display:flex;justify-content:space-between;border-bottom:1px dashed var(--rule);padding-bottom:10px;margin-bottom:16px}
+.draft p.line{font-size:1.02rem;line-height:1.9}
+.flag{border-bottom:2px dotted var(--mark);cursor:default}
+.note{margin:14px 0 0;padding-left:14px;border-left:3px solid var(--mark)}
+.note .chk{font-family:var(--mono);font-size:.68rem;color:var(--mark);letter-spacing:.06em}
+.note .q{font-family:var(--serif);font-style:normal;font-size:.98rem;line-height:1.45;margin-top:2px}
+.draft .stamp{position:absolute;top:-14px;right:-12px;transform:rotate(6deg);
+  font-family:var(--mono);font-size:.66rem;letter-spacing:.1em;color:var(--mark);
+  border:1.5px solid var(--mark);border-radius:3px;padding:.45em .7em;background:var(--paper)}
+/* checks strip -->
+*/
+.strip{border-top:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink);padding:18px 0;overflow:hidden}
+.strip .row{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.strip .lbl{font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);margin-right:6px}
+.chip{font-family:var(--mono);font-size:.74rem;border:1px solid var(--ink);border-radius:2em;padding:.32em .75em;background:#fffdf6}
+.chip b{color:var(--pass);font-weight:500}
+/* sections */
+section{padding:72px 0}
+h2{font-family:var(--serif);font-weight:600;font-size:clamp(1.5rem,2.8vw,2.1rem);line-height:1.15;max-width:18em}
+.secnum{font-family:var(--mono);font-size:.72rem;color:var(--mark);letter-spacing:.14em;display:block;margin-bottom:12px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:40px;counter-reset:s}
+.step{border-top:1.5px solid var(--ink);padding-top:16px;counter-increment:s}
+.step::before{content:"0" counter(s);font-family:var(--mono);font-size:.75rem;color:var(--mark)}
+.step h3{font-family:var(--serif);font-weight:600;font-size:1.12rem;margin:.5em 0 .4em}
+.step p{font-size:.96rem;color:var(--ink-soft)}
+/* contract */
+.contract{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:start}
+.rules{margin-top:6px}
+.rule-item{display:flex;gap:14px;padding:16px 0;border-bottom:1px solid var(--rule)}
+.rule-item .no{font-family:var(--mono);font-size:.72rem;color:var(--mark);padding-top:.35em;white-space:nowrap}
+.rule-item p{font-size:.98rem}
+.rule-item p b{font-weight:600}
+/* questions */
+.qs{margin-top:36px;display:grid;gap:22px}
+.qs blockquote{font-family:var(--serif);font-size:clamp(1.15rem,2.2vw,1.5rem);line-height:1.35;max-width:30em;padding-left:20px;border-left:3px solid var(--mark)}
+.qs .src{font-family:var(--mono);font-size:.7rem;color:var(--ink-soft);margin-top:6px;padding-left:23px}
+/* bottom capture */
+.bottom{background:var(--ink);color:var(--paper);border-radius:6px;padding:52px 48px;margin:20px 0 0}
+.bottom h2{color:var(--paper);max-width:none}
+.bottom .capture input[type=email]{background:#2c2820;color:var(--paper);border-color:var(--paper)}
+.bottom .capture button{background:var(--mark);border-color:var(--mark)}
+.bottom .formnote{color:#a89e8c}
+/* footer */
+footer{padding:48px 0 64px;border-top:1.5px solid var(--ink);margin-top:72px}
+footer h4{font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--mark);margin-bottom:14px}
+footer ul{list-style:none}
+footer li{font-size:.88rem;color:var(--ink-soft);padding:6px 0;border-bottom:1px dashed var(--rule);max-width:52em}
+footer .fine{font-family:var(--mono);font-size:.7rem;color:var(--ink-soft);margin-top:22px}
+/* reveal */
+.rv{opacity:0;transform:translateY(14px);animation:rv .7s ease forwards}
+@keyframes rv{to{opacity:1;transform:none}}
+.d1{animation-delay:.05s}.d2{animation-delay:.15s}.d3{animation-delay:.25s}.d4{animation-delay:.4s}
+@media(max-width:860px){
+  .hero{grid-template-columns:1fr;gap:40px;padding:48px 0 40px}
+  .steps{grid-template-columns:1fr}
+  .contract{grid-template-columns:1fr;gap:28px}
+  .bottom{padding:36px 24px}
+  .draft{transform:none}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<nav class="topbar">
+  <div class="wordmark">EconLens<span class="zh">析经济</span></div>
+  <a class="switch" id="switchLink" href="?v=teachers">For teachers →</a>
+</nav>
+
+<header class="hero">
+  <div>
+    <p class="kicker rv d1" id="kicker">IB Economics · Internal Assessment</p>
+    <!-- PT-01 / PT-03 -->
+    <h1 class="rv d2" id="headline">Don't waste your <span class="under">one official feedback round</span>.</h1>
+    <p class="sub rv d3" id="subhead">IB rules allow your teacher <strong>one round of written feedback</strong> on your IA draft. EconLens gives you unlimited criterion-referenced practice feedback first — so that one round counts.</p>
+    <div class="capture rv d4">
+      <!-- Buttondown embed; replace BUTTONDOWN_USERNAME before deploy -->
+      <form id="capForm" action="https://buttondown.com/api/emails/embed-subscribe/BUTTONDOWN_USERNAME" method="post" target="_blank">
+        <input type="email" name="email" required placeholder="you@school.email" aria-label="Email address">
+        <button type="submit" id="ctaBtn">Get early access</button>
+      </form>
+      <p class="formnote" id="formNote">Demo link when it goes live + one worked example of a marked draft. No spam; unsubscribe anytime.</p>
+      <p class="formok" id="formOk">✓ Check your inbox to confirm — that click is what counts.</p>
+    </div>
+  </div>
+
+  <!-- The marked draft: annotations below are REAL deterministic outputs (no-key mode), not mockups -->
+  <aside class="draft rv d4" aria-label="Example of a marked draft">
+    <div class="stamp">practice round · unlimited</div>
+    <div class="doctag"><span>draft_round1.txt</span><span>criterion check</span></div>
+    <p class="line">“The sugar tax is <span class="flag">a very good policy</span> and it will <span class="flag">definitely work</span>.”</p>
+    <div class="note">
+      <span class="chk">[claims] evaluative claim · no evidence signal nearby</span>
+      <p class="q">What evidence would let this claim survive a sceptical reader?</p>
+    </div>
+    <div class="note">
+      <span class="chk">[key_concept] none of the nine key concepts named</span>
+      <p class="q">Which of the nine key concepts is actually doing work in your argument?</p>
+    </div>
+    <div class="note">
+      <span class="chk">[diagram] no figure referenced · criterion A</span>
+      <p class="q">Which relationship in your argument could a labelled diagram make explicit?</p>
+    </div>
+  </aside>
+</header>
+
+<!-- PT-10: the eight offline checks, real check IDs -->
+<div class="strip rv d4">
+  <div class="row">
+    <span class="lbl">8 checks · offline · instant</span>
+    <span class="chip">word_limit <b>≤800</b></span>
+    <span class="chip">diagram</span>
+    <span class="chip">terminology <b>~90 terms</b></span>
+    <span class="chip">key_concept <b>9 lenses</b></span>
+    <span class="chip">application</span>
+    <span class="chip">evaluation</span>
+    <span class="chip">claims↔evidence</span>
+    <span class="chip">structure</span>
+  </div>
+</div>
+
+<section>
+  <span class="secnum">§1 · How it works</span>
+  <h2 id="howTitle">Fix the mechanical problems yourself. Spend the official round on economics.</h2>
+  <div class="steps">
+    <div class="step"><h3>Paste your commentary</h3><p>Your draft plus the news article it responds to. Nothing to install for the demo.</p></div>
+    <!-- PT-10 / PT-12 -->
+    <div class="step"><h3>Get criterion-referenced checks</h3><p>Word limit, diagram, terminology, key concepts, article grounding, evaluation angles, claim-evidence gaps — mapped to criteria A–E, in seconds.</p></div>
+    <!-- PT-16 -->
+    <div class="step"><h3 id="step3Title">Revise, re-run, repeat</h3><p id="step3Body">Every round is logged — word count, similarity to your last draft, band trajectory — exportable as a process report.</p></div>
+  </div>
+</section>
+
+<section>
+  <div class="contract">
+    <div>
+      <span class="secnum">§2 · The contract</span>
+      <!-- PT-02 -->
+      <h2>It will never write it for you.</h2>
+      <p class="sub" style="margin-top:16px">That's not a policy promise — it's enforced in code. If the AI breaks a rule, its output is rejected before you see it.</p>
+    </div>
+    <div class="rules">
+      <!-- PT-13 -->
+      <div class="rule-item"><span class="no">R·01</span><p>Every quote must exist <b>verbatim</b> in your draft — no invented sentences, ever.</p></div>
+      <div class="rule-item"><span class="no">R·02</span><p>Feedback comes as <b>questions, not rewrites</b> — every finding ends with a question you answer yourself.</p></div>
+      <!-- PT-14 -->
+      <div class="rule-item"><span class="no">R·03</span><p>Every finding is <b>anchored to evidence</b> — a named check result or a line from your own text. Unanchored advice is rejected.</p></div>
+      <div class="rule-item"><span class="no">R·04</span><p>AI never changes the mechanical results — deterministic checks run first and stand <b>as computed</b>.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <span class="secnum">§3 · The questions it asks</span>
+  <h2>One question, four workflows: which step of your reasoning is still unproven?</h2>
+  <!-- Real coach outputs (deterministic mode), 2026-08 test run -->
+  <div class="qs">
+    <div><blockquote>“Whose losses, or what time frame, would weaken your judgement if taken seriously?”</blockquote><p class="src">evaluation coach · criterion E</p></div>
+    <div><blockquote>“Which specific number or actor from the article does your analysis hang on?”</blockquote><p class="src">application check · criterion C</p></div>
+    <div><blockquote>“What is the step-by-step mechanism from the policy to the outcome you assert?”</blockquote><p class="src">evaluation chain · mechanism step</p></div>
+  </div>
+</section>
+
+<section>
+  <div class="bottom">
+    <span class="secnum">§4 · Early access</span>
+    <h2 id="bottomTitle">The demo runs the full offline check suite. Your inbox gets the link first.</h2>
+    <div class="capture">
+      <form class="capForm2" action="https://buttondown.com/api/emails/embed-subscribe/BUTTONDOWN_USERNAME" method="post" target="_blank">
+        <input type="email" name="email" required placeholder="you@school.email" aria-label="Email address">
+        <button type="submit">Get early access</button>
+      </form>
+      <p class="formnote">Double opt-in. One confirmation click, then the demo link and a worked example.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <h4>Honest boundaries</h4>
+  <ul>
+    <!-- PT-92 -->
+    <li>EconLens is an independent study tool. It is <b>not affiliated with or endorsed by</b> the International Baccalaureate Organization. “IB” is a registered trademark of the IBO.</li>
+    <!-- PT-91 -->
+    <li>Band estimates are <b>practice reference only</b>, not grade predictions. Official assessment is done by your teacher and IB moderation.</li>
+    <!-- PT-93 -->
+    <li>The process log shows your revisions happened here, round by round. It does <b>not</b> prove authorship — and says so on the report itself.</li>
+    <!-- PT-21 -->
+    <li>Criteria are transcribed from the IB Economics Guide (first assessment 2022). For high-stakes use, check against the current Guide.</li>
+  </ul>
+  <p class="fine">EconLens 析经济 · built openly — the growth of this product is itself a documented, spec-driven project.</p>
+</footer>
+
+</div>
+
+<script>
+/* ---------- variant switching (audience bet: EXP-001) ---------- */
+var params = new URLSearchParams(location.search);
+var variant = params.get("v") === "teachers" ? "teacher" : "student";
+var COPY = {
+  teacher: {
+    kicker: "IB Economics · for IA supervisors",
+    headline: 'Your students’ drafts, <span class="under">pre-checked against the IB criteria</span> before they reach you.',
+    subhead: "IB rules give you <strong>one round of written feedback</strong> per IA draft. EconLens clears the mechanical problems first — so your round goes to economics, not word counts.",
+    formNote: "Demo link when it goes live + a sample process report. No spam; unsubscribe anytime.",
+    howTitle: "Students arrive with the mechanical problems already fixed.",
+    step3Title: "Students bring a process log",
+    step3Body: "Each round logged — word count, similarity to the previous draft, band trajectory — exportable as a process report you can actually read.",
+    bottomTitle: "The demo runs the full offline check suite. See what your students would see.",
+    switchText: "For students →", switchHref: "?v=students"
+  },
+  student: { switchText: "For teachers →", switchHref: "?v=teachers" }
+};
+if (variant === "teacher") {
+  var c = COPY.teacher;
+  document.getElementById("kicker").textContent = c.kicker;
+  document.getElementById("headline").innerHTML = c.headline;
+  document.getElementById("subhead").innerHTML = c.subhead;
+  document.getElementById("formNote").textContent = c.formNote;
+  document.getElementById("howTitle").textContent = c.howTitle;
+  document.getElementById("step3Title").textContent = c.step3Title;
+  document.getElementById("step3Body").textContent = c.step3Body;
+  document.getElementById("bottomTitle").textContent = c.bottomTitle;
+}
+var sw = document.getElementById("switchLink");
+sw.textContent = COPY[variant].switchText || COPY.teacher.switchText;
+sw.href = (variant === "teacher" ? "?v=students" : "?v=teachers");
+
+/* ---------- analytics: PostHog, cookieless memory mode (funnel_spec E1/E2/E3) ---------- */
+var POSTHOG_KEY = "";           /* set before deploy; empty = analytics disabled, no errors */
+var POSTHOG_HOST = "https://eu.i.posthog.com";
+function phReady(cb){ if (window.posthog && POSTHOG_KEY) cb(); }
+if (POSTHOG_KEY) {
+  !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.async=!0,p.src=s.api_host+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+  posthog.init(POSTHOG_KEY,{api_host:POSTHOG_HOST,persistence:"memory"});
+  posthog.register({variant:variant});
+}
+/* E2 scroll50 — once per session */
+var scrolled=false;
+window.addEventListener("scroll",function(){
+  if(scrolled) return;
+  var h=document.documentElement, d=(h.scrollTop+window.innerHeight)/h.scrollHeight;
+  if(d>=.5){scrolled=true;phReady(function(){posthog.capture("scroll50");});}
+},{passive:true});
+/* E3 email_submit */
+function wireForm(f){
+  f.addEventListener("submit",function(ev){
+    phReady(function(){posthog.capture("email_submit",{variant:variant});});
+    if(f.action.indexOf("BUTTONDOWN_USERNAME")>-1){ /* not configured yet: don't post into the void */
+      ev.preventDefault();
+      var ok=document.getElementById("formOk"); if(ok){ok.style.display="block";ok.textContent="✓ Signups open in a few days — this form goes live with the demo.";}
+    }
+  });
+}
+wireForm(document.getElementById("capForm"));
+document.querySelectorAll(".capForm2").forEach(wireForm);
+</script>
+</body>
+</html>
